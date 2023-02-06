@@ -1,2 +1,2 @@
-# potential-octo-couscous
+#Shoemaker
 E-Commerce App built using flutter(Frontend) and Django(Backend).
