@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:frontend/data/category.dart';
 
 class GridB extends StatefulWidget {
   const GridB({super.key});
@@ -10,6 +11,7 @@ class GridB extends StatefulWidget {
 }
 
 class _GridBState extends State<GridB> {
+  Category category = Category();
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -20,8 +22,9 @@ class _GridBState extends State<GridB> {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(mainAxisExtent: 250,crossAxisCount: 2,crossAxisSpacing: 12.0,mainAxisSpacing: 12.0), itemBuilder: (_,idex){
         return Container(
           decoration: BoxDecoration(
+            border: Border.all(),
             borderRadius: BorderRadius.circular(14),
-            color: Colors.purpleAccent
+            color: Color.fromARGB(255, 201, 218, 227)
           ),
           // color: Colors.purpleAccent,
         );
