@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/components/constants.dart';
 
 // ignore: camel_case_types
 class searchBar extends StatelessWidget {
@@ -7,21 +8,22 @@ class searchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top:10.0,bottom: 15,left: 20,right: 20),
+    return Center(
       child: TextField(
+      
         decoration: InputDecoration(
+          
           prefixIcon: const Icon(Icons.search ),
           border: const OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.grey)
+          borderSide: BorderSide(color: kSecondaryColor)
           ),
           
           hintText: text,
           
         ),
         
-    
-    
+      
+      
       ),
     );
   }
