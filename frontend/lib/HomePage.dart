@@ -10,6 +10,8 @@ import 'package:frontend/components/constants.dart';
 // import 'package:frontend/components/gridview.dart';
 import 'package:frontend/components/searchbar.dart';
 import 'package:frontend/components/size_config.dart';
+import 'package:frontend/data/product.dart';
+import 'package:lottie/lottie.dart';
 
 import 'data/category.dart';
 
@@ -22,6 +24,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Category _category = Category();
+  Products _products = Products();
 
   @override
   Widget build(BuildContext context) {
@@ -68,14 +71,14 @@ class _HomePageState extends State<HomePage> {
                             itemCount: snapshot.data!.length,
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
-                                    mainAxisExtent: 300,
+                                    mainAxisExtent: 350,
                                     crossAxisCount: 2,
-                                    crossAxisSpacing: 12.0,
-                                    mainAxisSpacing: 12.0),
+                                    crossAxisSpacing: 20.0,
+                                    mainAxisSpacing: 20.0),
                             itemBuilder: (_, index) {
                               return Container(
-                                height: SizeConfig.defaultSize*2,
-                                width: SizeConfig.defaultSize*2,
+                                height: SizeConfig.defaultSize*5,
+                                width: SizeConfig.defaultSize*5,
                                 decoration: BoxDecoration(
                                   
                                   // boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5),spreadRadius: 2,blurRadius: 1)],
@@ -89,16 +92,27 @@ class _HomePageState extends State<HomePage> {
                                       Padding(
                                         padding: EdgeInsets.only(bottom:SizeConfig.defaultSize*1.6),
                                         child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(20),
+                                          borderRadius: BorderRadius.only(topLeft: Radius.circular(16),topRight: Radius.circular(16)),
                                           child: Image.network(
                                             "${snapshot.data?.elementAt(index)['image']}",
-                                            height: SizeConfig.screenHeight*0.27,
-                                          ),
+                                            
+                        
+                                            fit: BoxFit.cover,
+                                            width: double.infinity,
+                                            height: 260,
+                                            loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+
+            return Center(child: Lottie.asset("/home/sinjin/ecommerce/frontend/assets/79609-loading-button.json"));
+                                            }
+                                            // height: SizeConfig.screenHeight*0.27,
+                                            // width: SizeConfig.screenWidth*0.9,
+                                          )
                                         ),
                                       ),
-                                      SizedBox(height: SizeConfig.defaultSize*0.3),
+                                      // SizedBox(height: SizeConfig.defaultSize*0.1),
                                       Text(snapshot.data!
-                                          .elementAt(index)['name'],style: TextStyle(fontSize: SizeConfig.defaultSize*0.9,color: kTextColor),),
+                                          .elementAt(index)['name'],style: TextStyle(fontSize: SizeConfig.defaultSize*1.1,color: kTextColor,fontWeight: FontWeight.bold),),
                                           
                                     ],
                                   ),
@@ -107,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                               );
                             });
                       } else {
-                        return const Text('Data not loading');
+                        return Lottie.network('https://assets4.lottiefiles.com/datafiles/QeC7XD39x4C1CIj/data.json');
                       }
                     },
                   ),
@@ -116,13 +130,66 @@ class _HomePageState extends State<HomePage> {
                   // const SizedBox(
                   //   height: 15,
                   // ),
-                   Text(
-                    "Trending Sales",
-                    style: TextStyle(fontSize: SizeConfig.defaultSize*1.6, fontWeight: FontWeight.bold),
+                  SizedBox(
+                    height: SizeConfig.defaultSize*2,
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  //  Text(
+                  //   "Trending Sales",
+                  //   style: TextStyle(fontSize: SizeConfig.defaultSize*1.6, fontWeight: FontWeight.bold),
+                  // ),
+                  // const SizedBox(
+                  //   height: 20,
+                  // ),
+                  // FutureBuilder<List>(
+                  //   future: _category.getAllCategories(),
+                  //   builder: (context,snapshot){
+                  //     if(snapshot.hasData){
+                  //       return PageView.builder(
+                  //         itemCount: snapshot.data!.length,
+                  //         itemBuilder: ((context,index){
+                  //           return Container(
+                  //               height: SizeConfig.defaultSize*5,
+                  //               width: SizeConfig.defaultSize*5,
+                  //               decoration: BoxDecoration(
+                                  
+                  //                 // boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.5),spreadRadius: 2,blurRadius: 1)],
+                  //                   // s
+                  //                   borderRadius: BorderRadius.circular(14),
+                  //                   color: Color.fromARGB(255, 233, 232, 232)),
+
+                  //               child: Center(
+                  //                 child: Column(
+                  //                   children: [
+                  //                     Padding(
+                  //                       padding: EdgeInsets.only(bottom:SizeConfig.defaultSize*1.6),
+                  //                       child: ClipRRect(
+                  //                         borderRadius: BorderRadius.only(topLeft: Radius.circular(16),topRight: Radius.circular(16)),
+                  //                         child: Image.network(
+                  //                           "${snapshot.data?.elementAt(index)['image']}",
+                  //                           fit: BoxFit.cover,
+                  //                           width: double.infinity,
+                  //                           height: 260,
+                  //                           // height: SizeConfig.screenHeight*0.27,
+                  //                           // width: SizeConfig.screenWidth*0.9,
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                     // SizedBox(height: SizeConfig.defaultSize*0.1),
+                  //                     Text(snapshot.data!
+                  //                         .elementAt(index)['name'],style: TextStyle(fontSize: SizeConfig.defaultSize*1.1,color: kTextColor,fontWeight: FontWeight.bold),),
+                                          
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //               // color: Colors.purpleAccent,
+                  //             );
+
+                  //         }));
+                  //     }else{
+                  //       return Text("No data available");
+                  //     }
+                  //   })
+
                   
                 ],
               ),
