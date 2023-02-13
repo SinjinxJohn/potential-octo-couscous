@@ -40,33 +40,36 @@ class DetailsPage extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left:8),
+                  padding: const EdgeInsets.only(left:10),
                   child: Text(product.name!.toUpperCase().toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold),),
                 ),
                 Spacer(),
                  Padding(
-              padding: const EdgeInsets.only(left:8.0,right: 8),
+              padding: const EdgeInsets.only(left:10.0,right: 10),
               child: Text("\$"+product.price.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 81, 80, 80)),),
             ),
               ],
             ),
             SizedBox(height: SizeConfig.defaultSize*1.6,),
             Padding(
-              padding: const EdgeInsets.only(left:8.0,right:8),
+              padding: const EdgeInsets.only(left:10.0,right:10),
               child: Text(product.desc.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.3,color: kTextColor),),
             ),
             // SizedBox(height: SizeConfig.defaultSize*1,),
            
-            SizedBox(height: SizeConfig.defaultSize*7,),
+            SizedBox(height: SizeConfig.defaultSize*14,),
             // Spacer(),
             Center(
               child: Container(
                 height:SizeConfig.defaultSize*5 ,
-                width: SizeConfig.screenWidth*0.8,
+                width: SizeConfig.defaultSize*24,
                 decoration: BoxDecoration(color: kPrimaryColor,borderRadius: BorderRadius.circular(18)),
                 child: Padding(
                   padding: const EdgeInsets.only(left:30.0, right: 30),
-                  child: Center(child: Text("ADD TO CART",style: TextStyle(fontSize: SizeConfig.defaultSize*1.3,fontWeight: FontWeight.bold),)),
+                  child: Center(child:
+                   Text("ADD TO CART",style: TextStyle(fontSize: SizeConfig.defaultSize*1.3,fontWeight: FontWeight.bold),)
+                  
+                   ),
                 ),
               ),
             )
@@ -80,12 +83,14 @@ class DetailsPage extends StatelessWidget {
 
   AppBar appbarDetail(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.black,
       actions: [
         IconButton(
           onPressed: () {},
           icon: Image.asset(
             "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
             height: SizeConfig.screenHeight* 0.5,
+            color: Colors.white,
             
           ),
         )
@@ -96,6 +101,7 @@ class DetailsPage extends StatelessWidget {
           },
           icon: SvgPicture.asset(
             "/home/sinjin/ecommerce/frontend/assets/back-arrow-direction-down-right-left-up-2-svgrepo-com.svg",
+            colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
             height: SizeConfig.defaultSize * 2,
           )),
     );

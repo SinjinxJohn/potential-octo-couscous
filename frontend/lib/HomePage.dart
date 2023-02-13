@@ -50,6 +50,35 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
+      drawer: Drawer(
+      child: ListView(
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.black,
+            ),
+            child: Center(child: Text('Drawer Header',style: TextStyle(color: Colors.white,fontSize: 20),)),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.home,
+            ),
+            title: const Text('Page 1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.train,
+            ),
+            title: const Text('Page 2'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),])),
           backgroundColor: Color.fromARGB(255, 249, 243, 240),
           appBar: appBar(),
           body: SingleChildScrollView(
@@ -180,21 +209,24 @@ class _HomePageState extends State<HomePage> {
 
   AppBar appBar() {
     return AppBar(
+      backgroundColor: Colors.black ,
       actions: [
         IconButton(
           onPressed: () {},
           icon: Image.asset(
             "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
             height: SizeConfig.defaultSize * 2.4,
+            color: Colors.white,
           ),
         )
       ],
-      leading: IconButton(
-          onPressed: () {},
-          icon: SvgPicture.asset(
-            "/home/sinjin/ecommerce/frontend/assets/icons8-menu.svg",
-            height: SizeConfig.defaultSize * 2,
-          )),
+      // leading: IconButton(
+      //     onPressed: () {},
+      //     icon: SvgPicture.asset(
+      //       "/home/sinjin/ecommerce/frontend/assets/icons8-menu.svg",
+      //       height: SizeConfig.defaultSize * 2,
+      //       colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+      //     )),
     );
   }
 }
