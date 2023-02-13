@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:frontend/HomePage.dart';
 import 'package:frontend/components/constants.dart';
+import 'package:frontend/loginPage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         )
 
       ),
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }

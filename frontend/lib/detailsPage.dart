@@ -41,13 +41,13 @@ class DetailsPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left:10),
-                  child: Text(product.name!.toUpperCase().toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold),),
+                  child: Text(product.name!.toUpperCase().toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,color:Color.fromARGB(255, 81, 80, 80)),),
                 ),
                 Spacer(),
                  Padding(
               padding: const EdgeInsets.only(left:10.0,right: 10),
-              child: Text("\$"+product.price.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 81, 80, 80)),),
-            ),
+              child: Text("\$"+product.price.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,),
+            ),)
               ],
             ),
             SizedBox(height: SizeConfig.defaultSize*1.6,),

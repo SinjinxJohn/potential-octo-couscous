@@ -62,19 +62,22 @@ class _HomePageState extends State<HomePage> {
             child: Center(child: Text('Drawer Header',style: TextStyle(color: Colors.white,fontSize: 20),)),
           ),
           ListTile(
-            leading: Icon(
-              Icons.home,
-            ),
-            title: const Text('Page 1'),
+            leading: Image.asset(
+            "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
+            height: SizeConfig.defaultSize * 2.4,
+            color: Colors.black,
+          ),
+            title: Text("Cart",style: TextStyle(fontSize: SizeConfig.defaultSize*1.2),),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
             leading: Icon(
-              Icons.train,
+              Icons.album_outlined,
+              color: Colors.black,
             ),
-            title: const Text('Page 2'),
+            title: const Text('About Page'),
             onTap: () {
               Navigator.pop(context);
             },
@@ -92,6 +95,21 @@ class _HomePageState extends State<HomePage> {
                       // mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Text("Welcome back, Emanuel",
+                        style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: SizeConfig.defaultSize * 1.6)),
+                        SizedBox(
+                          height: SizeConfig.defaultSize*0.5,
+                        ),
+                        SizedBox(
+                          height: 100,
+                          width: SizeConfig.screenWidth*0.9,
+                          child: searchBar(text: "Search product")),
+                        // Text('What are you buying today?',
+                        // style: TextStyle(
+                        //       fontWeight: FontWeight.bold,
+                        //       fontSize: SizeConfig.defaultSize * 1.6)),
                         // searchBar(text: "Enter the product name"),
                         // SizedBox(
                         //   height: 20,
@@ -220,13 +238,7 @@ class _HomePageState extends State<HomePage> {
           ),
         )
       ],
-      // leading: IconButton(
-      //     onPressed: () {},
-      //     icon: SvgPicture.asset(
-      //       "/home/sinjin/ecommerce/frontend/assets/icons8-menu.svg",
-      //       height: SizeConfig.defaultSize * 2,
-      //       colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-      //     )),
+      
     );
   }
 }
