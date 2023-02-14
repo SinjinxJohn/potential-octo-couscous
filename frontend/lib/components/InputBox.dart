@@ -1,6 +1,7 @@
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/components/size_config.dart';
 
 class InputBox extends StatelessWidget {
   TextEditingController controller;

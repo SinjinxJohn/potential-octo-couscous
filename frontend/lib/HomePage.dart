@@ -4,8 +4,11 @@
 // ignore: file_names
 // ignore_for_file: file_names
 
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:frontend/cart.dart';
 import 'package:frontend/components/constants.dart';
 // import 'package:frontend/components/gridview.dart';
 import 'package:frontend/components/searchbar.dart';
@@ -69,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           ),
             title: Text("Cart",style: TextStyle(fontSize: SizeConfig.defaultSize*1.2),),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => CartPage())));
             },
           ),
           ListTile(
@@ -83,7 +86,22 @@ class _HomePageState extends State<HomePage> {
             },
           ),])),
           backgroundColor: Color.fromARGB(255, 249, 243, 240),
-          appBar: appBar(),
+          appBar: AppBar(
+      backgroundColor: Colors.black ,
+      actions: [
+        IconButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: ((context)=>CartPage())));
+          },
+          icon: Image.asset(
+            "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
+            height: SizeConfig.defaultSize * 2.4,
+            color: Colors.white,
+          ),
+        )
+      ],
+      
+    ),
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.all(SizeConfig.defaultSize * 2),
@@ -225,20 +243,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  AppBar appBar() {
-    return AppBar(
-      backgroundColor: Colors.black ,
-      actions: [
-        IconButton(
-          onPressed: () {},
-          icon: Image.asset(
-            "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
-            height: SizeConfig.defaultSize * 2.4,
-            color: Colors.white,
-          ),
-        )
-      ],
-      
-    );
-  }
+  
 }
