@@ -1,7 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/components/size_config.dart';
 
 class InputBox extends StatelessWidget {
   TextEditingController controller;
@@ -11,13 +8,13 @@ class InputBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Container(
+     return SizedBox(
         width: 350,
         child: TextField(
           controller: controller,
           obscureText: obscure,
           decoration:
-              InputDecoration(hintText: value, border: OutlineInputBorder()),
-        ));;
+              InputDecoration(hintText: value, border: const OutlineInputBorder()),
+        ));
   }
 }

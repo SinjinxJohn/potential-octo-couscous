@@ -7,17 +7,22 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frontend/HomePage.dart';
+import 'package:frontend/cart.dart';
+import 'package:frontend/components/cartController.dart';
 import 'package:frontend/components/constants.dart';
 import 'package:frontend/data/category.dart';
 import 'package:frontend/data/categoryAPI.dart';
 import 'package:frontend/data/productAPI.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import 'components/size_config.dart';
 // import 'package:frontend/HomePage.dart';
 
 class DetailsPage extends StatelessWidget {
   final ProductApi product;
-  const DetailsPage({super.key, required this.product});
+  final cartcontroller = Get.put(CartController());
+  DetailsPage({super.key, required this.product,});
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +46,12 @@ class DetailsPage extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left:10),
-                  child: Text(product.name!.toUpperCase().toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,color:Color.fromARGB(255, 81, 80, 80)),),
+                  child: Text(product.name.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,color:Color.fromARGB(255, 81, 80, 80)),),
                 ),
                 Spacer(),
                  Padding(
               padding: const EdgeInsets.only(left:10.0,right: 10),
-              child: Text("\$"+product.price.toString(),style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,),
+              child: Text("\$${product.price}",style: TextStyle(fontSize: SizeConfig.defaultSize*1.6,fontWeight: FontWeight.bold,),
             ),)
               ],
             ),
@@ -60,16 +65,21 @@ class DetailsPage extends StatelessWidget {
             SizedBox(height: SizeConfig.defaultSize*14,),
             // Spacer(),
             Center(
-              child: Container(
-                height:SizeConfig.defaultSize*5 ,
-                width: SizeConfig.defaultSize*24,
-                decoration: BoxDecoration(color: kPrimaryColor,borderRadius: BorderRadius.circular(18)),
-                child: Padding(
-                  padding: const EdgeInsets.only(left:30.0, right: 30),
-                  child: Center(child:
-                   Text("ADD TO CART",style: TextStyle(fontSize: SizeConfig.defaultSize*1.3,fontWeight: FontWeight.bold),)
-                  
-                   ),
+              child: GestureDetector(
+                onTap: (){
+                  cartcontroller.addProduct(product);
+                },
+                child: Container(
+                  height:SizeConfig.defaultSize*5 ,
+                  width: SizeConfig.defaultSize*24,
+                  decoration: BoxDecoration(color: kPrimaryColor,borderRadius: BorderRadius.circular(18)),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left:30.0, right: 30),
+                    child: Center(child:
+                     Text("ADD TO CART",style: TextStyle(fontSize: SizeConfig.defaultSize*1.3,fontWeight: FontWeight.bold),)
+                    
+                     ),
+                  ),
                 ),
               ),
             )
@@ -86,7 +96,9 @@ class DetailsPage extends StatelessWidget {
       backgroundColor: Colors.black,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+          },
           icon: Image.asset(
             "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",
             height: SizeConfig.screenHeight* 0.5,

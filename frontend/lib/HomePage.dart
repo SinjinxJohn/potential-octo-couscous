@@ -17,6 +17,8 @@ import 'package:frontend/data/categoryAPI.dart';
 import 'package:frontend/data/product.dart';
 import 'package:frontend/data/productAPI.dart';
 import 'package:frontend/detailsPage.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:lottie/lottie.dart';
 import 'package:frontend/data/category.dart';
 
@@ -73,6 +75,7 @@ class _HomePageState extends State<HomePage> {
             title: Text("Cart",style: TextStyle(fontSize: SizeConfig.defaultSize*1.2),),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: ((context) => CartPage())));
+              // Get.to(()=>CartPage());
             },
           ),
           ListTile(
@@ -186,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.only(
                                         bottom: SizeConfig.defaultSize * 1.6),
                                     child: ClipRRect(
-                                        borderRadius: BorderRadius.only(
+                                        borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(16),
                                             topRight: Radius.circular(16)),
                                         child: Image.network(
