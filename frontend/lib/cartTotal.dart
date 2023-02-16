@@ -13,11 +13,12 @@ class CartTotal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(()=>
        Container(
+        
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 75,),
           child: Row(
             children: [
-              Text("Total", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              Text("Subtotal:", style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right:30.0),
