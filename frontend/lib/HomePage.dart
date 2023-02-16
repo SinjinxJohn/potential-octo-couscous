@@ -9,6 +9,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:frontend/cart.dart';
+import 'package:frontend/cartScreen.dart';
 import 'package:frontend/components/constants.dart';
 // import 'package:frontend/components/gridview.dart';
 import 'package:frontend/components/searchbar.dart';
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           ),
             title: Text("Cart",style: TextStyle(fontSize: SizeConfig.defaultSize*1.2),),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: ((context) => CartPage())));
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => CartScreen())));
               // Get.to(()=>CartPage());
             },
           ),
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
       actions: [
         IconButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: ((context)=>CartPage())));
+            Navigator.push(context, MaterialPageRoute(builder: ((context)=>CartScreen())));
           },
           icon: Image.asset(
             "/home/sinjin/ecommerce/frontend/assets/icons8-shopping-cart-24.png",

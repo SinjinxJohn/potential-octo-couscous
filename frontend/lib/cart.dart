@@ -19,9 +19,7 @@ class _CartPageState extends State<CartPage> {
   final CartController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appbarCart(context),
-      body: Obx(()=>
+    return Obx(()=>
          SizedBox(
           height: 600,
           child: ListView.builder(
@@ -34,9 +32,7 @@ class _CartPageState extends State<CartPage> {
                 index: index,
               );
             }) 
-        ),
-      ),
-    );
+        ));
   }
 
   
