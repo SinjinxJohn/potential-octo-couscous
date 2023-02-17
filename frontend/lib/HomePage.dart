@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                         // ),
                         
                         Text(
-                          "Browse by category",
+                          "Top Products",
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: SizeConfig.defaultSize * 1.6),

@@ -19,11 +19,13 @@ class CartScreen extends StatelessWidget {
         height: 800,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              CartPage(),
-              CartTotal()
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                CartPage(),
+                CartTotal()
+              ],
+            ),
           ),
         ),
       ),

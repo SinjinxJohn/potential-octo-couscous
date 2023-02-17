@@ -67,6 +67,11 @@ class DetailsPage extends StatelessWidget {
             Center(
               child: GestureDetector(
                 onTap: (){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Container(
+                    height: 35,
+                    decoration: BoxDecoration(color: Colors.transparent),
+                    child: Text("Item has been added to cart",style: TextStyle(color: Colors.white,),)
+                  )));
                   cartcontroller.addProduct(product);
                 },
                 child: Container(
