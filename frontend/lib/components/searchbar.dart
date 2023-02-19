@@ -10,6 +10,7 @@ class searchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: TextField(
+        
       
         decoration: InputDecoration(
           
