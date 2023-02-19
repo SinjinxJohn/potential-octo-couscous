@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Padding(
                   padding: const EdgeInsets.only(left:30.0, right: 30),
                   child: Center(child:
-                   Text("ADD TO CART",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
+                   Text("LOGIN",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold),)
                   
                    ),))
                    )),
@@ -80,10 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                   print("Forgot password, navigate to retrieve screen ");
                 },
                 child: Container(
-                  child: Text(
-                    "Forgot Password?",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  child: TextButton(child: Text("Forgot Password?"),onPressed: (){},)
                 ),
               )
             ],
