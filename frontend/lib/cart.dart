@@ -25,12 +25,15 @@ class _CartPageState extends State<CartPage> {
           child: ListView.builder(
             itemCount: controller.productsCart.length,
             itemBuilder:  (context, index){
+              
               return CartProductCard(
                 controller: controller,
                 productApi: controller.products.keys.toList()[index],
                 quantity: controller.products.values.toList()[index],
                 index: index,
               );
+             
+              
             }) 
         ));
   }
